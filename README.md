@@ -18,3 +18,7 @@ Untuk menjalankannya simply buat terminal untuk masing-masing sisi dan run setid
 
 ### commit 2.2
 Untuk mengubah port bisa dilakukan dengan mengubah port di sisi client(pada function main di ClientBuilder) dan sisi server(pada function main di listener). Mereka menggunakan protokol websocket yang sama. Untuk pendefinisian protokol websocketnya, pada sisi client dilakukan di string URInya (`ws://`) pada pemanggilan `Uri::from_static("ws://127.0.0.1:8080")`. Sedangkan pada sisi server di `let (_req, ws_stream) = ServerBuilder::new().accept(socket).await?;`(pada saat server mengewrap TCP biasa).
+
+
+### commit 2.3
+Saya tidak sadar ternyata sudah mengimplementasikan tugas ini pada commit di pertama. Jadi yang saya lakukan adalah menambahkan code berikut pada saat server menerima pesan: `println!("Received message from {addr}: {text}");` karena kita ingin print hanya saat pesannya diterima dan menghasilkan Ok().
